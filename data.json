@@ -1,0 +1,34 @@
+{
+  "transports": [
+    {
+      "model": "Boeing 777",
+      "B­passenger­capacity": 14,
+      "E­passenger­capacity": 300
+    },
+    {
+      "manufacturer": "BMW",
+      "model": "M3",
+      "passenger­capacity": 4
+    },
+    {
+      "model": "ICE",
+      "Number­wagons": 5,
+      "w­passenger­capacity": 30
+    },
+    {
+      "manufacturer": "Mercedes­Benz",
+      "model": "C­Klasse",
+      "Passenger­capacity": 4
+    },
+    {
+      "model": "Boeing 777S",
+      "B­passenger­capacity": 10,
+      "E­passenger­capacity": 200
+    },
+    {
+      "manufacturer": "Audi",
+      "model": "Q3",
+      "passenger­capacity": 6
+    }
+  ]
+}
