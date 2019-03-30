@@ -105,3 +105,22 @@ $ python transport.py <full_path_to_file>
 ```
 $ python transport_tests.py
 ```
+
+## Benchmarking
+
+```
+$ /usr/bin/time -p python transport.py /tmp/data.txt
+real 0.03
+user 0.03
+sys 0.00
+```
+
+Profiling
+```
+$ python -m cProfile -s tottime -o profile.stats transport.py /tmp/data.txt
+$ snakeviz profile.stats
+```
+
+![Graph](profile_output_1.png)
+
+![Table](profile_output_2.png)
