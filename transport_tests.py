@@ -5,7 +5,10 @@ import unittest
 
 
 class TestSolution(unittest.TestCase):
+    """Test suite for the transport script"""
+
     def setUp(self):
+        """Define test data"""
         self.empty_data = []
         self.test_data = [
                 {
@@ -46,6 +49,8 @@ class TestSolution(unittest.TestCase):
         }
 
     def test_get_capacities_and_distinct_transports_returns_0_for_empty_data(self):
+        """Test the get_capacities_and_distinct_transports method returns
+        two dicts with values 0 for empty data"""
         capacities, distinct_transports = \
             transport.get_capacities_and_distinct_transports(self.empty_data)
 
@@ -65,6 +70,8 @@ class TestSolution(unittest.TestCase):
         self.assertDictEqual(distinct_transports, expected_distinct_transports)
 
     def test_get_capacities_and_distinct_transports_returns_totals(self):
+        """Test the get_capacities_and_distinct_transports method returns
+        two dicts with correct totals for example data"""
         capacities, distinct_transports = \
             transport.get_capacities_and_distinct_transports(self.test_data)
 
@@ -84,6 +91,9 @@ class TestSolution(unittest.TestCase):
         self.assertDictEqual(distinct_transports, expected_distinct_transports)
 
     def test_sort_values_returns_list_of_set_sorted_by_value(self):
+        """Test the sort_values method returns a list of sets sorted by value
+        given a dict with totals returned by
+        get_capacities_and_distinct_transports method"""
         sorted_capacities = transport.sort_values(self.test_capacities)
         expected_capacities = [
             (6, 'cars'),

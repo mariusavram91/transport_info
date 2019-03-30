@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Lists total passenger capacities by type of transport and count of transport
+type distinct models given a path to a txt file with data."""
 
 import json
 import os
@@ -6,6 +8,9 @@ import sys
 
 
 def main():
+    """Requires the full path of the file with JSON data. Then outputs the
+    sorted values in the console."""
+
     if not os.path.isabs(sys.argv[1]):
         print("Please enter the full path of the file!")
         exit(1)
@@ -27,6 +32,16 @@ def main():
 
 
 def get_capacities_and_distinct_transports(transports_data):
+    """
+    Returns two dicts with total capacities for each type of transport and
+    counts of each distinct models for each type of transport. Requires a
+    list of dicts with the different transport info.
+
+    Car total capacity: passenger-capacity value
+    Train total capacity: number-wagons * w-passenger-capacity
+    Plane total capacity: b-passenger-capacity + e-passenger-capacity
+    """
+
     unique_car_models = set()
     unique_train_models = set()
     unique_plane_models = set()
@@ -36,6 +51,7 @@ def get_capacities_and_distinct_transports(transports_data):
     planes_total_capacity = 0
 
     for transport in transports_data:
+        # Lowercase for all the keys in the transport dict
         transport = dict((k.lower(), v) for k, v in transport.items())
 
         is_car = 'manufacturer' and 'passenger-capacity' in transport.keys()
@@ -72,11 +88,15 @@ def get_capacities_and_distinct_transports(transports_data):
 
 
 def sort_values(values_dict):
+    """Returns a list of sets that is sorted by the values of a given dict."""
+
     return sorted(((value, key) for key, value in values_dict.items()),
                   reverse=True)
 
 
 def output(sorted_items):
+    """Prints the sorted list with type of transport and its value."""
+
     for item in sorted_items:
         print('"{type}": {value}'.format(type=item[1], value=item[0]))
 
