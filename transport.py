@@ -37,11 +37,12 @@ def get_capacities_and_distinct_transports(transports_data):
 
     for transport in transports_data:
         transport = dict((k.lower(), v) for k, v in transport.items())
-        keys = list((key for key in transport))
 
-        is_car = 'manufacturer' and 'passenger-capacity' in keys
-        is_train = 'number-wagons' and 'w-passenger-capacity' in keys
-        is_plane = 'b-passenger-capacity' and 'e-passenger-capacity' in keys
+        is_car = 'manufacturer' and 'passenger-capacity' in transport.keys()
+        is_train = 'number-wagons' and 'w-passenger-capacity' in \
+            transport.keys()
+        is_plane = 'b-passenger-capacity' and 'e-passenger-capacity' in \
+            transport.keys()
 
         if is_car:
             unique_car_models.add(transport['model'])
