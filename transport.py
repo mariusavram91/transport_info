@@ -5,8 +5,10 @@ type distinct models given a path to a txt file with data."""
 import json
 import os
 
+from typing import List, Tuple
 
-def main(data_file_path):
+
+def main(data_file_path: str) -> None:
     """Requires the full path of the file with JSON data. Then outputs the
     sorted values in the console."""
 
@@ -28,7 +30,7 @@ def main(data_file_path):
         output(sort_values(distinct_transports))
 
 
-def get_capacities_and_distinct_transports(transports_data):
+def get_capacities_and_distinct_transports(transports_data: List[dict]) -> Tuple[dict, dict]:
     """
     Returns two dicts with total capacities for each type of transport and
     counts of each distinct models for each type of transport. Requires a
@@ -84,14 +86,14 @@ def get_capacities_and_distinct_transports(transports_data):
     return capacities, distinct_transports
 
 
-def sort_values(values_dict):
-    """Returns a list of sets that is sorted by the values of a given dict."""
+def sort_values(values_dict: dict) -> List[tuple]:
+    """Returns a list of tuples that is sorted by the values of a given dict."""
 
     return sorted(((value, key) for key, value in values_dict.items()),
                   reverse=True)
 
 
-def output(sorted_items):
+def output(sorted_items: List[set]) -> None:
     """Prints the sorted list with type of transport and its value."""
 
     for item in sorted_items:
