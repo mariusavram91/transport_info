@@ -130,21 +130,3 @@ $ snakeviz profile.stats
 ![Graph](profile_output_1.png)
 
 ![Table](profile_output_2.png)
-
-## Virtual Env
-```
-$ python3.7 -m venv env
-```
-
-```
-$ python -V
-Python 3.7.2
-```
-
-To activate the env
-
-    source env/bin/activate
-
-To deactivate the env
-
-    deactivate
