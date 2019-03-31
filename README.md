@@ -80,27 +80,31 @@ the output in the console will be:
 "distinct-trains": 1
 ```
 
-## Virtual Env
-```
-$ python3.7 -m venv env
-```
-
-```
-$ python -V
-Python 3.7.2
-```
-
-To activate the env
-
-    source env/bin/activate
-
-To deactivate the env
-
-    deactivate
-
 ## Run script
 ```
 $ python transport.py <full_path_to_file>
+```
+
+You can use -h for help and -v for the version:
+
+```
+$ python transport.py -h
+usage: transport.py [-h] [-v] path
+
+Lists total passenger capacities by type of transport and count of transport
+type distinct models given a path to a txt file with data.
+
+positional arguments:
+  path        full path of the data file
+
+optional arguments:
+  -h, --help  show this help message and exit
+  -v          show program's version number and exit
+```
+
+```
+$ python transport.py -v
+0.1
 ```
 
 ## Run tests
@@ -126,3 +130,21 @@ $ snakeviz profile.stats
 ![Graph](profile_output_1.png)
 
 ![Table](profile_output_2.png)
+
+## Virtual Env
+```
+$ python3.7 -m venv env
+```
+
+```
+$ python -V
+Python 3.7.2
+```
+
+To activate the env
+
+    source env/bin/activate
+
+To deactivate the env
+
+    deactivate

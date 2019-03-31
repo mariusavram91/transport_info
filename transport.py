@@ -4,19 +4,16 @@ type distinct models given a path to a txt file with data."""
 
 import json
 import os
-import sys
 
 
-def main():
+def main(data_file_path):
     """Requires the full path of the file with JSON data. Then outputs the
     sorted values in the console."""
 
-    if not os.path.isabs(sys.argv[1]):
+    if not os.path.isabs(data_file_path):
         print("Please enter the full path of the file!")
         exit(1)
-    elif os.path.exists(sys.argv[1]):
-        data_file_path = sys.argv[1]
-    else:
+    elif not os.path.exists(data_file_path):
         print("File does not exist!")
         exit(1)
 
@@ -102,4 +99,14 @@ def output(sorted_items):
 
 
 if __name__ == '__main__':
-    main()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Lists total passenger \
+            capacities by type of transport and count of transport \
+            type distinct models given a path to a txt file with data.")
+    parser.add_argument("path", help="full path of the data file")
+    parser.add_argument("-v", action="version", version="0.1")
+
+    args = parser.parse_args()
+
+    main(args.path)
