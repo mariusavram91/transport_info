@@ -7,6 +7,8 @@ between 100 - 1000000000 records.
 It will output in the console a sorted list of transport types capacities and a
 count of distinct models.
 
+[![Build Status](https://travis-ci.org/mariusavram91/transport_info.svg?branch=master)](https://travis-ci.org/mariusavram91/transport_info)
+
 ## Total capacities by type of transport
 
 Cars:
