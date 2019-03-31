@@ -84,7 +84,7 @@ the output in the console will be:
 
 **Dependencies**
 
-ijson library is needed, you can install install it by:
+ijson library is needed, you can install it by:
 
 ```
 $ pip install -r requirements.txt

@@ -92,11 +92,11 @@ def sort_values(values_dict: dict) -> List[tuple]:
                   reverse=True)
 
 
-def output(sorted_items: List[set]) -> None:
+def output(sorted_items: List[tuple]) -> None:
     """Prints the sorted list with type of transport and its value."""
 
-    for item in sorted_items:
-        print('"{type}": {value}'.format(type=item[1], value=item[0]))
+    for value, type in sorted_items:
+        print(f'"{type}": {value}')
 
 
 if __name__ == '__main__':
