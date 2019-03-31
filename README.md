@@ -81,6 +81,16 @@ the output in the console will be:
 ```
 
 ## Run script
+
+**Dependencies**
+
+ijson library is needed, you can install install it by:
+
+```
+$ pip install -r requirements.txt
+```
+Then you can execute the script
+
 ```
 $ python transport.py <full_path_to_file>
 ```

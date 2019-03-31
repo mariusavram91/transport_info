@@ -2,10 +2,10 @@
 """Lists total passenger capacities by type of transport and count of transport
 type distinct models given a path to a txt file with data."""
 
-import json
+import ijson
 import os
 
-from typing import List, Tuple
+from typing import Generator, List, Tuple
 
 
 def main(data_file_path: str) -> None:
@@ -20,21 +20,20 @@ def main(data_file_path: str) -> None:
         exit(1)
 
     with open(data_file_path) as f:
-        data = json.load(f)
+        transports = ijson.items(f, 'transports.item')
 
         capacities, distinct_transports = \
-            get_capacities_and_distinct_transports(data['transports'])
+            get_capacities_and_distinct_transports(transports)
 
         output(sort_values(capacities))
         print()
         output(sort_values(distinct_transports))
 
 
-def get_capacities_and_distinct_transports(transports_data: List[dict]) -> Tuple[dict, dict]:
+def get_capacities_and_distinct_transports(transports_data: Generator[dict, None, None]) -> Tuple[dict, dict]:
     """
     Returns two dicts with total capacities for each type of transport and
-    counts of each distinct models for each type of transport. Requires a
-    list of dicts with the different transport info.
+    counts of each distinct models for each type of transport.
 
     Car total capacity: passenger-capacity value
     Train total capacity: number-wagons * w-passenger-capacity
